@@ -2,8 +2,8 @@ import React from "react";
 
 const Login = () => {
   return (
-    <div className="container">
-      <div className="row">
+    <div className="container my-5">
+      <div className="row my-5">
         <div className="col col-6 mx-auto">
           <form>
             <div className="form-group">

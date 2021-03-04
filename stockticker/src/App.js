@@ -4,7 +4,7 @@ import Main from "./pages/Main";
 
 function App() {
   return (
-    <div classNameName="">
+    <div>
       <Main />
     </div>
   );
