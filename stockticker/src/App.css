@@ -3,3 +3,24 @@ form {
   padding: 10px;
   border-radius: 5px;
 }
+
+.jumbo-container {
+  background: black;
+  padding-top: 30px;
+}
+.jumbo-text-container {
+  color: white;
+  text-align: center;
+}
+
+.stock-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.form-control {
+  width: 55%;
+  margin-right: 30px;
+}
