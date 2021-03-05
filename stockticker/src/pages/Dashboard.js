@@ -1,12 +1,12 @@
 import React from "react";
-import Jumbotron from "../components/Jumbotron";
+import Title from "../components/Title";
 import Nav from "../components/Nav";
 
 const Dashboard = () => {
   return (
     <>
       <Nav />
-      <Jumbotron />
+      <Title />
     </>
   );
 };
