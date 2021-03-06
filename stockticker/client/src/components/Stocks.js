@@ -18,6 +18,7 @@ const Stocks = () => {
             </div>
           </div>
         </div>
+
         <div className="col col-8">
           <h4>Chart / Stock Info</h4>
         </div>
