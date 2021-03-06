@@ -1,7 +1,7 @@
 import React from "react";
-import Login from "../components/Login";
+// import Login from "../components/Login";
 // import MainNav from "../components/MainNav";
-import Signup from "../components/Signup";
+// import Signup from "../components/Signup";
 
 const Main = () => {
   return (
@@ -34,9 +34,9 @@ const Main = () => {
           </ul>
         </div>
       </nav>
-      <div className="conatiner">
-        <Login />
-        <Signup />
+      <div className="container">
+        {/* <Login />
+        <Signup /> */}
       </div>
     </>
   );
