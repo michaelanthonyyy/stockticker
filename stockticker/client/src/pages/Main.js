@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 // import Login from "../components/Login";
 // import MainNav from "../components/MainNav";
 // import Signup from "../components/Signup";
@@ -21,15 +23,15 @@ const Main = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Login
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Sign Up
-              </a>
+          <li className="nav-item">
+          <Link to="/login" className="nav-link">
+              Login
+            </Link>
+          </li>
+          <li className="nav-item">
+          <Link to="/signup" className="nav-link">
+              Sign-Up
+            </Link>
             </li>
           </ul>
         </div>
