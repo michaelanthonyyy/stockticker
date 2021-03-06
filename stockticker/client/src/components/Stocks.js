@@ -1,4 +1,5 @@
 import React from "react";
+import UserStock from "./UserStock";
 
 const Stocks = () => {
   return (
@@ -10,10 +11,8 @@ const Stocks = () => {
 
         <div className="col col-4">
           <div className="row">
+            <UserStock />
             <div className="col col-12">
-              <h4>Saved Stocks Container</h4>
-            </div>
-            <div className="col">
               <h4>Optional Container</h4>
             </div>
           </div>
