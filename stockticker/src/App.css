@@ -6,10 +6,12 @@ form {
 
 .jumbo-container {
   background: black;
-  padding-top: 30px;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 .jumbo-text-container {
   color: white;
+  font-size: 24px;
   text-align: center;
 }
 
@@ -18,9 +20,15 @@ form {
   justify-content: center;
   align-items: center;
   border: none;
+  margin-top: 10px;
 }
 
 .form-control {
   width: 55%;
   margin-right: 30px;
+}
+
+.row,
+.col {
+  border: 1px solid red;
 }
