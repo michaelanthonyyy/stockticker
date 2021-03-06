@@ -1,6 +1,27 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import Dygraph from 'dygraphs';
+import API from "../utils/API";
 
 const Stocks = () => {
+  const graphRef = useRef();
+  useEffect(() => {
+    API.getDailyStock("GOOGL")
+      .then(result => {
+        console.log(result);
+        var data = "Date, Close\n";
+        for (const entry of result.data) {
+          data += entry.date +", ";
+          data += entry.close + "\n";
+        }
+        console.log(data);
+        const g = new Dygraph(
+          graphRef.current, data,
+          { }                                   // the options
+        );
+      });
+
+  });
+
   return (
     <div className="row">
       <div className="col col-12">
@@ -8,6 +29,7 @@ const Stocks = () => {
       </div>
       <div className="col col-8">
         <p>Conatiner 1 - Col 2</p>
+        <div ref={graphRef}></div>
       </div>
       <div className="col col-4">
         <p>Conatiner 1 - Col 3</p>
