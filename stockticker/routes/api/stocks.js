@@ -11,6 +11,11 @@ router
     .get(stocksController.findWeekly);
 
 router
-    .route("/monthly")
+    .route("/monthly/:ticker")
+    .get(stocksController.findMonthly);
+
+router
+    .route("/yearly/:ticker")
+    .get(stocksController.findYearly);
 
 module.exports = router;
