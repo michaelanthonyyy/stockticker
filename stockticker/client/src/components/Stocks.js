@@ -2,7 +2,7 @@ import React from "react";
 
 const Stocks = () => {
   return (
-    <div>
+    <div className="ctn">
       <div className="row">
         <div className="col col-12">
           <h4>Top Trending Daily Stocks / Chart / Optional </h4>

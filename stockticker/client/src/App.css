@@ -23,12 +23,12 @@ form {
   margin-top: 10px;
 }
 
-.form-control {
+.stock-form input {
   width: 55%;
   margin-right: 30px;
 }
 
-.row,
-.col {
+.ctn .row,
+.ctn .col {
   border: 1px solid lightskyblue;
 }
