@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 
 const Main = () => {
   return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="intro-ctn">
+      <nav className="navbar navbar-expand-lg nav-main">
         <span className="navbar-brand mx-auto">Stockticker</span>
         <button
           className="navbar-toggler"
@@ -23,24 +23,20 @@ const Main = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-          <Link to="/login" className="nav-link">
-              Login
-            </Link>
-          </li>
-          <li className="nav-item">
-          <Link to="/signup" className="nav-link">
-              Sign-Up
-            </Link>
+            <li className="nav-item">
+              <Link to="/login" className="nav-link">
+                Login
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/signup" className="nav-link">
+                Sign-Up
+              </Link>
             </li>
           </ul>
         </div>
       </nav>
-      <div className="container">
-        {/* <Login />
-        <Signup /> */}
-      </div>
-    </>
+    </div>
   );
 };
 
