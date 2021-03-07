@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useAuth } from "../contexts/FirebaseContext"
 
 export default function Signup() {
@@ -6,28 +6,28 @@ export default function Signup() {
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
   const { signup } = useAuth()
-  const [error, setError] = useState('')
+  const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
 
   async function handleSubmit(e) {
     e.preventDefault()
 
     if(passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError('Password and Password confirmation do not match')
+      return setError("Password and Password confirmation do not match")
     }
     try {
-      setError('')
+      setError("")
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
     } catch {
-      setError('Failed to create an account')
+      setError("Failed to create an account")
     }
     setLoading(false)
   }
 
-// const Signup = () => {
   return (
-    <div className="row">
+    
+      <div className="row">
       <div className="col col-6 mx-auto">
         <alert>{error}</alert>
         <form onSubmit={handleSubmit}>
@@ -61,7 +61,7 @@ export default function Signup() {
             <div className="form-group col-md-6">
               <label for="inputPassword">Confirm Password</label>
               <input
-                type="passwordConfirm"
+                type="password"
                 className="form-control"
                 id="passwordConfirm"
                 ref={passwordConfirmRef}
