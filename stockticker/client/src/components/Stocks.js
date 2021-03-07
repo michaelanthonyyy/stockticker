@@ -23,22 +23,22 @@ const Stocks = () => {
   });
 
   return (
-    <div className="ctn">
+    <div className="ctn container">
       <div className="row">
-        <div className="col col-12">
+        <div className="col-12">
           <h4>Top Trending Daily Stocks / Chart / Optional </h4>
         </div>
 
-        <div className="col col-6">
+        <div className="col col-sm-12 col-md-6">
           <div className="row">
             <UserStock />
-            <div className="col col-12">
+            <div className="col-12">
               <p>Container 1 - Row 1 - Col 2</p>
             </div>
           </div>
         </div>
 
-        <div className="col col-6">
+        <div className="col-sm-12 col-md-6">
           <h4>Chart / Stock Info</h4>
           <div ref={graphRef}></div>
         </div>

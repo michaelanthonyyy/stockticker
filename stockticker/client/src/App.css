@@ -32,3 +32,12 @@ form {
 .ctn .col {
   border: 1px solid lightskyblue;
 }
+
+.ctn .col {
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.ctn {
+  padding: 0px 20px;
+}
