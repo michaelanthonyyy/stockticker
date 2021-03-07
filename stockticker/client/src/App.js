@@ -14,12 +14,12 @@ function App() {
       {/* <Dashboard /> */}
       <AuthProvider>
       <Router>
-      <Switch>
-        <Route exact path="/" component={Main} />
-        <Route exact path="/user" component={Dashboard} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />
-      </Switch>
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route exact path="/user" component={Dashboard} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+        </Switch>
       </Router>
       </AuthProvider>
     </div>

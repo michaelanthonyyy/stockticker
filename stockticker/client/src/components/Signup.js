@@ -26,6 +26,7 @@ export default function Signup() {
   }
 
   return (
+
     
       <div className="row">
       <div className="col col-6 mx-auto">
@@ -73,6 +74,7 @@ export default function Signup() {
             Sign Up
           </button>
         </form>
+
       </div>
     </div>
   );
