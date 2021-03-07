@@ -13,6 +13,7 @@ a:active {
 }
 
 .nav-main {
+  background: none;
   color: white;
 }
 
@@ -25,7 +26,7 @@ a:active {
 }
 
 .main-content-ctn {
-  min-height: 90vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,14 +34,21 @@ a:active {
 
 .main-content {
   color: white;
-  margin: auto;
   text-align: center;
 }
 
-form {
-  border: 1px solid black;
-  padding: 10px;
-  border-radius: 5px;
+.signup-ctn {
+  padding: 0px 10px;
+}
+
+.card {
+  margin-top: 100px;
+  box-shadow: 3px 3px 10px rgb(100, 100, 100);
+}
+
+.card h5 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .jumbo-container {
