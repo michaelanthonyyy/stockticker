@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../contexts/FirebaseContext";
-import { Link, useHistory } from "react-router-dom";
+import { BrowserRouter as Redirect, Link } from "react-router-dom";
+import Dashboard from "../pages/Dashboard";
+
 
 
 export default function Signup() {
@@ -9,8 +11,7 @@ export default function Signup() {
   const passwordConfirmRef = useRef()
   const { signup } = useAuth()
   const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
-  
+  const [loading, setLoading] = useState(false)  
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -22,17 +23,19 @@ export default function Signup() {
       setError("")
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-      useHistory.push("/")
+      
     } catch {
-      setError("")
+      setError("Failed to create account")
     }
     setLoading(false)
   }
-
+ 
+  if (loading === true) {
+    return <Redirect to="/user" component={Dashboard}/>
+  } else {
   return (
 
-    
-      <div className="row">
+      <div className="row">            
       <div className="col col-6 mx-auto">
       <div className="alert">{error}</div>
         <form onSubmit={handleSubmit}>
@@ -75,19 +78,5 @@ export default function Signup() {
 
       </div>
     </div>
-  );
+  );}
 };
-
-{/* <div className="form-group col-md-6">
-              <label for="inputFirstName">First Name</label>
-              <input type="text" className="form-control" id="inputFirstName" />
-            </div>
-            <div className="form-group col-md-6">
-              <label for="inputLastName">Last Name</label>
-              <input type="text" className="form-control" id="inputLastName" />
-            </div> */}
-
-{/* <div className="form-group col-md-6">
-              <label for="inputUserName">Username</label>
-              <input type="text" className="form-control" id="inputUserName" />
-            </div> */}
