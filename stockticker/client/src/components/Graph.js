@@ -17,7 +17,7 @@ function Graph({ width = 400, ticker }) {
             console.log(data);
             const g = new Dygraph(
               graphRef.current, data,
-              { }                                   // the options
+              { showRangeSelector: true }                                   // the options
             );
           });
     
