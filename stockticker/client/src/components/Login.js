@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../contexts/FirebaseContext";
-import { Link, useHistory } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+import Dashboard from "../pages/Dashboard";
 
 
 export default function Login () {
@@ -13,11 +14,13 @@ export default function Login () {
 
   async function handleSubmit(e) {
     e.preventDefault()
-
+    
     try {
       setError("")
       setLoading(true)
+      console.log('hello')
       await login(emailRef.current.value, passwordRef.current.value)
+      console.log('hello')
     } catch {
       setError("Failed to Login to Account. Please try again")
     }
@@ -25,7 +28,9 @@ export default function Login () {
   }
 
 
-
+  if (loading === true) {
+    return <Redirect to="/user" component={Dashboard}/>
+  } else {
   return (
     <div className="row my-5">
       <div className="col col-6 mx-auto">
@@ -52,7 +57,7 @@ export default function Login () {
               required
             />
           </div>
-          <button disabled={loading} type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Log In
           </button>
           Don't Have An Account? <Link to="/signup">Sign Up</Link>
@@ -60,6 +65,7 @@ export default function Login () {
       </div>
     </div>
   );
+  }
 };
 
 
