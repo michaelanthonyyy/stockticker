@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import API from "../utils/API";
 import Dygraph from 'dygraphs';
 
-function Graph({ width = 400, ticker }) {
+function Graph({ height = 300, width = 400, ticker }) {
     const graphRef = useRef();
 
     useEffect(() => {
@@ -24,7 +24,7 @@ function Graph({ width = 400, ticker }) {
       });
 
       return (
-        <div ref={graphRef}></div>
+        <div style={{width: width, height: height}} ref={graphRef}></div>
       )
 
 }
