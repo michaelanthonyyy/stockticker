@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useAuth } from "../contexts/FirebaseContext";
 
 export default function Login () {
@@ -6,14 +6,16 @@ export default function Login () {
   const passwordRef = useRef()
   const { login } = useAuth()
 
-
+  function handleSubmit(e) {
+    e.preventDefault()
+  }
 
 
 
   return (
     <div className="row my-5">
       <div className="col col-6 mx-auto">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label for="inputEmail">Email address</label>
             <input
