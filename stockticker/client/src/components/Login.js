@@ -18,10 +18,8 @@ export default function Login () {
       setError("")
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      useHistory().push("/user")
     } catch {
-      useHistory().push("/user")
-      // setError("Failed to Login to Account. Please try again")
+      setError("Failed to Login to Account. Please try again")
     }
     setLoading(false)
   }

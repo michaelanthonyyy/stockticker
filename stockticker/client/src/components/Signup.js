@@ -30,7 +30,9 @@ export default function Signup() {
   }
 
   return (
-    <div className="row">
+
+    
+      <div className="row">
       <div className="col col-6 mx-auto">
       <div className="alert">{error}</div>
         <form onSubmit={handleSubmit}>
@@ -70,6 +72,7 @@ export default function Signup() {
           </button>
           Already Have An Account? <Link to="/login">Log In</Link>
         </form>
+
       </div>
     </div>
   );
