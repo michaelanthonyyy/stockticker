@@ -1,4 +1,5 @@
 import React from "react";
+import { useAuth } from "../contexts/FirebaseContext";
 
 const Login = () => {
   return (

@@ -14,6 +14,10 @@ export function AuthProvider( { children } ) {
         return auth.createUserWithEmailAndPassword(email, password)
     }
 
+    function login(email, password) {
+        return auth.signInUserWithEmailandPassword(email, password)
+    }
+
 
     // auth.onAuthStateChanged built into firebase
     useEffect(() => {
@@ -27,7 +31,8 @@ export function AuthProvider( { children } ) {
 
     const value = {
         currentUser,
-        signup
+        signup,
+        login
     }
 
     return (
