@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
-import { useAuth } from "../contexts/FirebaseContext"
+import { useAuth } from "../contexts/FirebaseContext";
+import { Link, useHistory } from "react-router-dom";
+
 
 export default function Signup() {
   const emailRef = useRef()
@@ -8,19 +10,21 @@ export default function Signup() {
   const { signup } = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
+  
 
   async function handleSubmit(e) {
     e.preventDefault()
 
-    if(passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("Password and Password confirmation do not match")
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError("Password's do not match. Please re-enter password and password confirmation")
     }
     try {
       setError("")
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
+      useHistory.push("/")
     } catch {
-      setError("Failed to create an account")
+      setError("")
     }
     setLoading(false)
   }
@@ -30,26 +34,19 @@ export default function Signup() {
     
       <div className="row">
       <div className="col col-6 mx-auto">
-        <alert>{error}</alert>
+      <div className="alert">{error}</div>
         <form onSubmit={handleSubmit}>
           <div className="form-row" >
-            {/* <div className="form-group col-md-6">
-              <label for="inputFirstName">First Name</label>
-              <input type="text" className="form-control" id="inputFirstName" />
-            </div>
-            <div className="form-group col-md-6">
-              <label for="inputLastName">Last Name</label>
-              <input type="text" className="form-control" id="inputLastName" />
-            </div> */}
             <div className="form-group col-md-12" >
               <label for="inputEmail">Email</label>
-              <input type="email" className="form-control" id="inputEmail" ref={emailRef} required/>
+              <input type="email" 
+              className="form-control" 
+              id="inputEmail" 
+              ref={emailRef} 
+              required 
+              />
             </div>
-            {/* <div className="form-group col-md-6">
-              <label for="inputUserName">Username</label>
-              <input type="text" className="form-control" id="inputUserName" />
-            </div> */}
-            <div className="form-group col-md-6">
+            <div className="form-group col-md-12">
               <label for="inputPassword">Password</label>
               <input
                 type="password"
@@ -59,7 +56,7 @@ export default function Signup() {
                 required
               />
             </div>
-            <div className="form-group col-md-6">
+            <div className="form-group col-md-12">
               <label for="inputPassword">Confirm Password</label>
               <input
                 type="password"
@@ -73,6 +70,7 @@ export default function Signup() {
           <button type="submit" className="btn btn-primary" disabled={loading}>
             Sign Up
           </button>
+          Already Have An Account? <Link to="/login">Log In</Link>
         </form>
 
       </div>
@@ -80,4 +78,16 @@ export default function Signup() {
   );
 };
 
-// export default Signup;
+{/* <div className="form-group col-md-6">
+              <label for="inputFirstName">First Name</label>
+              <input type="text" className="form-control" id="inputFirstName" />
+            </div>
+            <div className="form-group col-md-6">
+              <label for="inputLastName">Last Name</label>
+              <input type="text" className="form-control" id="inputLastName" />
+            </div> */}
+
+{/* <div className="form-group col-md-6">
+              <label for="inputUserName">Username</label>
+              <input type="text" className="form-control" id="inputUserName" />
+            </div> */}
