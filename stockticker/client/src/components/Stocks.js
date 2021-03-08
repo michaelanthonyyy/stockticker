@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Dygraph from 'dygraphs';
 import API from "../utils/API";
+import Graph from "./Graph";
 
 const Stocks = () => {
   const graphRef = useRef();
@@ -29,7 +30,7 @@ const Stocks = () => {
       </div>
       <div className="col col-8">
         <p>Conatiner 1 - Col 2</p>
-        <div ref={graphRef}></div>
+        <Graph ticker={"GOOGL"}/>
       </div>
       <div className="col col-4">
         <p>Conatiner 1 - Col 3</p>
