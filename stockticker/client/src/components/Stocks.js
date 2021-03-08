@@ -5,7 +5,6 @@ import Graph from "./Graph";
 import UserStock from "./UserStock";
 
 const Stocks = () => {
-
   return (
     <div className="ctn container">
       <div className="row">
@@ -24,7 +23,7 @@ const Stocks = () => {
 
         <div className="col-sm-12 col-md-6">
           <h4>Chart / Stock Info</h4>
-          <Graph ticker={"GOOGL"}/>
+          <Graph ticker={"GOOGL"} />
         </div>
       </div>
     </div>

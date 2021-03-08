@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import API from "../utils/API";
 
-const Search = () => {
+const Search = ({ value, onChange, onSubmit }) => {
   return (
     <div className="conatainer">
-      <form className="stock-form">
+      <form className="stock-form" onSubmit={onSubmit}>
         <input
           type="text"
+          value={value}
+          onChange={onChange}
           className="form-control"
           placeholder="Search for stocks"
         />
