@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../contexts/FirebaseContext";
-import { Link, useHistory } from "react-router-dom";
+import { BrowserRouter as Redirect, Link } from "react-router-dom";
+import Dashboard from "../pages/Dashboard";
 
 
 export default function Login () {
@@ -25,7 +26,9 @@ export default function Login () {
   }
 
 
-
+  if (loading === true) {
+    return <Redirect to="/user" component={Dashboard}/>
+  } else {
   return (
     <div className="row my-5">
       <div className="col col-6 mx-auto">
@@ -60,6 +63,7 @@ export default function Login () {
       </div>
     </div>
   );
+  }
 };
 
 
