@@ -4,24 +4,6 @@ import API from "../utils/API";
 import Graph from "./Graph";
 
 const Stocks = () => {
-  const graphRef = useRef();
-  useEffect(() => {
-    API.getDailyStock("GOOGL")
-      .then(result => {
-        console.log(result);
-        var data = "Date, Close\n";
-        for (const entry of result.data) {
-          data += entry.date +", ";
-          data += entry.close + "\n";
-        }
-        console.log(data);
-        const g = new Dygraph(
-          graphRef.current, data,
-          { }                                   // the options
-        );
-      });
-
-  });
 
   return (
     <div className="row">
