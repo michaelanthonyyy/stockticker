@@ -13,7 +13,7 @@ export default function Signup() {
     e.preventDefault()
 
     if(passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("Password and Password confirmation do not match")
+      return setError("Password's do not match. Please re-enter password and password confirmation")
     }
     try {
       setError("")
@@ -48,7 +48,7 @@ export default function Signup() {
               <label for="inputUserName">Username</label>
               <input type="text" className="form-control" id="inputUserName" />
             </div> */}
-            <div className="form-group col-md-6">
+            <div className="form-group col-md-12">
               <label for="inputPassword">Password</label>
               <input
                 type="password"
@@ -58,7 +58,7 @@ export default function Signup() {
                 required
               />
             </div>
-            <div className="form-group col-md-6">
+            <div className="form-group col-md-12">
               <label for="inputPassword">Confirm Password</label>
               <input
                 type="password"

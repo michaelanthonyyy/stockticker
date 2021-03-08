@@ -1,26 +1,38 @@
 import React from "react";
 import { useAuth } from "../contexts/FirebaseContext";
 
-const Login = () => {
+export default function Login () {
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const { login } = useAuth()
+
+
+
+
+
   return (
     <div className="row my-5">
       <div className="col col-6 mx-auto">
         <form>
           <div className="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label for="inputEmail">Email address</label>
             <input
               type="email"
               className="form-control"
-              id="exampleInputEmail1"
+              ref = {emailRef}
+              required
+              id="inputEmail"
               aria-describedby="emailHelp"
             />
           </div>
           <div className="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="inputPassword">Password</label>
             <input
               type="password"
               className="form-control"
-              id="exampleInputPassword1"
+              id="inputPassword"
+              ref = {passwordRef}
+              required
             />
           </div>
           <button type="submit" className="btn btn-primary">
@@ -32,4 +44,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+
