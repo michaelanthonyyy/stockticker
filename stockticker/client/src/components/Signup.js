@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../contexts/FirebaseContext";
-import { BrowserRouter as Redirect, Link } from "react-router-dom";
+import { BrowserRouter as Router, Redirect, Route,  Link } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 
 
@@ -22,12 +22,13 @@ export default function Signup() {
     try {
       setError("")
       setLoading(true)
+      console.log(loading)
       await signup(emailRef.current.value, passwordRef.current.value)
       
     } catch {
       setError("Failed to create account")
     }
-    setLoading(false)
+    // setLoading(false)
   }
  
   if (loading === true) {
@@ -35,7 +36,11 @@ export default function Signup() {
   } else {
   return (
 
-      <div className="row">            
+    // <Route exact path="/signup">
+      <div className="row">
+                    
+      {/* {true ? <Redirect to="/user" /> : <div></div>}  */}
+            
       <div className="col col-6 mx-auto">
       <div className="alert">{error}</div>
         <form onSubmit={handleSubmit}>
@@ -78,5 +83,20 @@ export default function Signup() {
 
       </div>
     </div>
+    // </Route>
   );}
 };
+
+{/* <div className="form-group col-md-6">
+              <label for="inputFirstName">First Name</label>
+              <input type="text" className="form-control" id="inputFirstName" />
+            </div>
+            <div className="form-group col-md-6">
+              <label for="inputLastName">Last Name</label>
+              <input type="text" className="form-control" id="inputLastName" />
+            </div> */}
+
+{/* <div className="form-group col-md-6">
+              <label for="inputUserName">Username</label>
+              <input type="text" className="form-control" id="inputUserName" />
+            </div> */}
