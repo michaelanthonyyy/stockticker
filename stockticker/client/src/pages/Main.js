@@ -1,12 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 // import Login from "../components/Login";
 // import MainNav from "../components/MainNav";
 // import Signup from "../components/Signup";
 
 const Main = () => {
   return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="intro-ctn">
+      <nav className="navbar navbar-expand-lg nav-main">
         <span className="navbar-brand mx-auto">Stockticker</span>
         <button
           className="navbar-toggler"
@@ -22,23 +24,30 @@ const Main = () => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link to="/login" className="nav-link">
                 Login
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Sign Up
-              </a>
+              <Link to="/signup" className="nav-link">
+                Sign-Up
+              </Link>
             </li>
           </ul>
         </div>
       </nav>
-      <div className="container">
-        {/* <Login />
-        <Signup /> */}
+      <div className="container-fluid main-content-ctn">
+        <div className=" contianer main-content">
+          <h1>Stockticker</h1>
+          <p>
+            <span>Porject Desctriop</span>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel
+            cupiditate nesciunt quam laboriosam, adipisci maiores iure
+            perferendis.
+          </p>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
