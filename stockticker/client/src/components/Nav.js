@@ -6,7 +6,7 @@ const Nav = () => {
       <a className="navbar-brand">Stockticker</a>
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
-          <a class="nav-link">Logout</a>
+          <a className="nav-link">Logout</a>
         </li>
       </ul>
     </nav>
