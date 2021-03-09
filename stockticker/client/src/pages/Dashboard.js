@@ -13,8 +13,9 @@ export default function Dashboard() {
   const { currentUser, signout } = useAuth();
   console.log(currentUser);
 
-  const [stocks, setStocks] = useState([]);
+  // const [stocks, setStocks] = useState([]);
   const [stockSearch, setStockSearch] = useState("");
+  const [searchSubmit, setSearchSubmit] = useState("");
 
   const handleInputChange = (event) => {
     const { value } = event.target;
@@ -23,6 +24,8 @@ export default function Dashboard() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+
+    setSearchSubmit(stockSearch);
 
     setStockSearch("");
   };
@@ -52,7 +55,7 @@ export default function Dashboard() {
           onChange={handleInputChange}
           onSubmit={handleFormSubmit}
         />
-        <Stocks ticker={stockSearch} />
+        <Stocks ticker={searchSubmit} />
       </>
     );
   }
