@@ -9,6 +9,7 @@ const UserStock = () => {
   const [stockState, setStockState] = useState([]);
   const [commentState, setCommentState] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [textState, setTextState] = useState("");
 
   useEffect(() => {
     console.log(userState);
@@ -42,7 +43,7 @@ const UserStock = () => {
     e.preventDefault();
     var commentId = e.currentTarget.getAttribute("dataId");
     var textArea = e.target.parentNode.children[0].children[0];
-    
+
     textArea.value = "";
     API.updateCommentById(commentId, {$set: {content: ""} })
     .then(dbModel => {
@@ -52,15 +53,18 @@ const UserStock = () => {
     });
   }
 
-  // function handleInputChange(e) {
-  //   e.preventDefault();
-  //   var commentIndex = e.currentTarget.getAttribute("id");
-  //   console.log(commentIndex);
-  //   console.log(e.target.value);
-  //   var tempState = commentState;
-  //   tempState[commentIndex] = e.currentTarget.value;
-  //   setCommentState(tempState);
-  // }
+  // var comment="";
+  function handleInputChange(e) {
+    var commentIndex = e.target.getAttribute("index");
+    console.log(commentIndex);
+    console.log(e.target.value);
+    var tempState = commentState;
+    tempState[commentIndex].content = e.target.value;
+    console.log(tempState[commentIndex].content);
+    e.target.value = tempState[commentIndex].content;
+    setCommentState([...commentState, tempState[commentIndex]]);
+    console.log(commentState);
+  }
 
   return (
     <div className="col col-sm-12">
@@ -68,12 +72,10 @@ const UserStock = () => {
       <ul>
         {stockState.map((stock) => {
           var dataId = 0;
-          var comment = "";
           var indexId = 0;
           for (let i=0; i<stockState.length; i++) {
             if (commentState[i]) {if (commentState[i].ticker === stock) {
               dataId = commentState[i]._id;
-              comment = commentState[i].content;
               indexId = i;
             }}
           }
@@ -86,12 +88,12 @@ const UserStock = () => {
               type="text"
               placeholder="Add a comment"
               className="form-control"
-              id={indexId} ng-init={comment} />
+              index={indexId} value={commentState[indexId] ? commentState[indexId].content : ""} onChange={handleInputChange} />
             </div>
             <button dataId={dataId} type="submit" className="btn btn-primary">
             Save
           </button>
-          <button dataId={dataId} onClick={handleDelete} className="btn btn-warning">X</button>
+          <button dataId={dataId} onClick={handleDelete} className="btn btn-danger">X</button>
             </form>
           </li>
           
