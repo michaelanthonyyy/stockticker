@@ -13,9 +13,15 @@ function Graph({ height = 300, width = 400, ticker }) {
           .then(result => {
             console.log(result);
             var data = "Date, Close\n";
+            var count = 0;
             for (const entry of result.data) {
               data += entry.date +", ";
               data += entry.close + "\n";
+              if (count > 365) {
+                  break;
+              } else {
+                  count++;
+              }
             }
             console.log(data);
             const g = new Dygraph(

@@ -39,11 +39,7 @@ export default function Signup() {
   } else {
   return (
 
-    // <Route exact path="/signup">
-      <div className="row">
-                    
-      {/* {true ? <Redirect to="/user" /> : <div></div>}  */}
-            
+      <div className="row">            
       <div className="col col-6 mx-auto">
       <div className="alert">{error}</div>
         <form onSubmit={handleSubmit}>

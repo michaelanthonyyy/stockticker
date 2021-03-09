@@ -1,16 +1,27 @@
 import React from "react";
+import { useAuth } from "../contexts/FirebaseContext";
+import { Redirect } from "react-router-dom";
 
-const Nav = () => {
+
+
+export default function Nav(){
+  const { currentUser, logout} = useAuth()
+  console.log(currentUser)
+
+  if function handleLogout(){
+      logout()
+  }.then(
+
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a className="navbar-brand">Stockticker</a>
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
-          <a className="nav-link">Logout</a>
+          <button onClick={handleLogout}>Logout</button>
         </li>
       </ul>
     </nav>
-  );
+  ))
 };
 
-export default Nav;
