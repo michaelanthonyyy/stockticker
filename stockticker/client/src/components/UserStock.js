@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useAuth } from "../contexts/FirebaseContext";
+import { useAuth } from "../context/FirebaseContext";
 import API from "../utils/API";
 import Graph from "./Graph";
 
@@ -7,15 +7,15 @@ const UserStock = () => {
   const { currentUser } = useAuth();
   const [userState, setUserState] = useState(currentUser);
   const [stockState, setStockState] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [userLogin, setUserLogin] = useState(true);
 
   useEffect(() => {
     console.log(userState);
-    if (loading) {
+    if (userLogin) {
       API.getUserByEmail(userState.email).then((dbModel) => {
         console.log(dbModel.data.stocks);
         setStockState(dbModel.data.stocks);
-        setLoading(false);
+        setUserLogin(false);
       });
     }
   });

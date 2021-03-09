@@ -9,7 +9,14 @@ export function useAuth() {
 
 export function AuthProvider( { children } ) {
     const [currentUser, setCurrentUser] = useState()
-    const [loading, setLoading] = useState(true)
+    const [userLogin, setUserLogin] = useState(true)
+
+    const value = {
+        currentUser,
+        signup,
+        login,
+        signout
+    }
 
     function signout() {
         return auth.signOut()
@@ -28,24 +35,16 @@ export function AuthProvider( { children } ) {
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
                 setCurrentUser(user)
-                setLoading(false)
+                setUserLogin(false)
                 
             })
         return unsubscribe
     },[])
-    
 
-
-    const value = {
-        currentUser,
-        signup,
-        login,
-        signout
-    }
 
     return (
         <FirebaseContext.Provider value={value}>
-            {!loading && children}
+            {!userLogin && children}
         </FirebaseContext.Provider>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { useAuth } from "../contexts/FirebaseContext";
+import { useAuth } from "../context/FirebaseContext";
 import { Redirect, Link } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 
@@ -8,7 +8,7 @@ export default function Login () {
   const emailRef = useRef()
   const passwordRef = useRef()
   const { login } = useAuth()
-  const [loading, setLoading] = useState(false)
+  const [userLogin, setUserLogin] = useState(false)
   const [error, setError] = useState("")
 
 
@@ -17,18 +17,18 @@ export default function Login () {
     
     try {
       setError("")
-      setLoading(true)
+      setUserLogin(true)
       console.log('hello')
       await login(emailRef.current.value, passwordRef.current.value)
       console.log('hello')
     } catch {
       setError("Failed to Login to Account. Please try again")
     }
-    setLoading(false)
+    setUserLogin(false)
   }
 
 
-  if (loading === true) {
+  if (userLogin === true) {
     return <Redirect to="/user" component={Dashboard}/>
   } else {
   return (

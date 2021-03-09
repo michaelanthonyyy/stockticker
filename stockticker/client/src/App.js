@@ -5,14 +5,12 @@ import Dashboard from "./pages/Dashboard";
 import Main from "./pages/Main";
 import Login from "./components/Login.js";
 import Signup from "./components/Signup.js";
-import { AuthProvider } from "./contexts/FirebaseContext";
+import { AuthProvider } from "./context/FirebaseContext";
 import { auth } from "./Firebase";
 
 function App() {
   return (
     <div>
-      {/* <Dashboard /> */}
-
       <Router>
         <AuthProvider>
           <Switch>
