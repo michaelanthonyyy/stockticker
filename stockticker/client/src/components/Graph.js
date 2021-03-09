@@ -34,10 +34,15 @@ function Graph({ height = 300, width = 400, ticker }) {
 
       function handleClick(e) {
         if (currentUser) {
-            API.updateUserByEmail(graphState.email, {$push: {stocks: [ticker]}})
-            .then(dbModel => {
-              console.log(dbModel);
-            });
+            API.addComment({
+                ticker: ticker
+            }).then(({_id}) => {
+                API.updateUserByEmail(graphState.email, {$push: {stocks: [ticker], comments: _id}})
+                .then(dbModel => {
+                  console.log(dbModel);
+                });
+            })
+
         }
       }
 
