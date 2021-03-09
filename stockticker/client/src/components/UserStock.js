@@ -26,7 +26,7 @@ const UserStock = () => {
       <ul>
         {stockState.map((stock) => (
           <li>
-            <Graph ticker={stock} />
+            <Graph height={200} width={300} ticker={stock} />
           </li>
         ))}
       </ul>
