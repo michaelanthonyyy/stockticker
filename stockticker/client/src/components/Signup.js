@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import { useAuth } from "../contexts/FirebaseContext";
-import { BrowserRouter as Router, Redirect, Route,  Link } from "react-router-dom";
+import { useAuth } from "../context/FirebaseContext";
+import { Redirect, Link, useHistory } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import API from "../utils/API";
 
@@ -12,7 +12,8 @@ export default function Signup() {
   const passwordConfirmRef = useRef()
   const { signup } = useAuth()
   const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)  
+  const [userLogin, setUserLogin] = useState(false)
+  let history = useHistory()  
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -22,21 +23,21 @@ export default function Signup() {
     }
     try {
       setError("")
-      setLoading(true)
-      console.log(loading)
+      setUserLogin(true)
+      console.log(userLogin)
       API.addUser({email: emailRef.current.value,
       password: passwordRef.current.value});
       await signup(emailRef.current.value, passwordRef.current.value)
-      
+      history.push("/user");
     } catch {
       setError("Failed to create account")
     }
-    // setLoading(false)
+    setUserLogin(false)
   }
  
-  if (loading === true) {
-    return <Redirect to="/user" component={Dashboard}/>
-  } else {
+  // if (userLogin === true) {
+  //   return <Redirect to="/user" component={Dashboard}/>
+  // } else {
   return (
 
       <div className="row">            
@@ -74,7 +75,7 @@ export default function Signup() {
               />
             </div>
           </div>
-          <button type="submit" className="btn btn-primary" disabled={loading}>
+          <button type="submit" className="btn btn-primary" disabled={userLogin}>
             Sign Up
           </button>
           Already Have An Account? <Link to="/login">Log In</Link>
@@ -82,20 +83,7 @@ export default function Signup() {
 
       </div>
     </div>
-    // </Route>
-  );}
-};
+  );
+}
 
-{/* <div className="form-group col-md-6">
-              <label for="inputFirstName">First Name</label>
-              <input type="text" className="form-control" id="inputFirstName" />
-            </div>
-            <div className="form-group col-md-6">
-              <label for="inputLastName">Last Name</label>
-              <input type="text" className="form-control" id="inputLastName" />
-            </div> */}
 
-{/* <div className="form-group col-md-6">
-              <label for="inputUserName">Username</label>
-              <input type="text" className="form-control" id="inputUserName" />
-            </div> */}

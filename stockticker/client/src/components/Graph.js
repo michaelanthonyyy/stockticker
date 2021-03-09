@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import API from "../utils/API";
 import Dygraph from 'dygraphs';
-import { useAuth } from "../contexts/FirebaseContext";
+import { useAuth } from "../context/FirebaseContext";
 
 function Graph({ height = 300, width = 400, ticker }) {
     const { currentUser } = useAuth();

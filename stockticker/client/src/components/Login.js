@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import { useAuth } from "../contexts/FirebaseContext";
-import { Redirect, Link } from "react-router-dom";
+import { useAuth } from "../context/FirebaseContext";
+import { Redirect, Link, useHistory } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 
 
@@ -8,8 +8,9 @@ export default function Login () {
   const emailRef = useRef()
   const passwordRef = useRef()
   const { login } = useAuth()
-  const [loading, setLoading] = useState(false)
+  const [userLogin, setUserLogin] = useState(false)
   const [error, setError] = useState("")
+  let history = useHistory()  
 
 
   async function handleSubmit(e) {
@@ -17,20 +18,21 @@ export default function Login () {
     
     try {
       setError("")
-      setLoading(true)
+      setUserLogin(true)
       console.log('hello')
       await login(emailRef.current.value, passwordRef.current.value)
       console.log('hello')
+      history.push("/user")
     } catch {
       setError("Failed to Login to Account. Please try again")
     }
-    setLoading(false)
+    setUserLogin(false)
   }
 
 
-  if (loading === true) {
-    return <Redirect to="/user" component={Dashboard}/>
-  } else {
+  // if (userLogin === true) {
+  //   return <Redirect to="/user" component={Dashboard}/>
+  // } else {
   return (
     <div className="row my-5">
       <div className="col col-6 mx-auto">
@@ -66,6 +68,6 @@ export default function Login () {
     </div>
   );
   }
-};
+// };
 
 
