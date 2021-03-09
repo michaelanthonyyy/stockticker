@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Title from "../components/Title";
-// import Nav from "../components/Nav";
 import Content from "../components/Content";
-import { useAuth } from "../contexts/FirebaseContext";
+import { useAuth } from "../context/FirebaseContext";
 import Main from "./Main";
 import { Redirect } from "react-router-dom";
 import Search from "../components/Search";
