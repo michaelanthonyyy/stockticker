@@ -5,7 +5,10 @@ const userSchema = new Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
     stocks: { type: [String] },
-    comments: { type: [String] }
+    comments: [{
+      type: Schema.Types.ObjectId,
+      ref: "Comment"
+    }]
 });
 
 const User = mongoose.model("User", userSchema);

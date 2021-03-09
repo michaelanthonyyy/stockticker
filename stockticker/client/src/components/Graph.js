@@ -11,7 +11,6 @@ function Graph({ height = 300, width = 400, ticker }) {
     useEffect(() => {
         API.getDailyStock(ticker)
           .then(result => {
-            console.log(result);
             var data = "Date, Close\n";
             var count = 0;
             for (const entry of result.data) {
@@ -23,7 +22,6 @@ function Graph({ height = 300, width = 400, ticker }) {
                   count++;
               }
             }
-            console.log(data);
             const g = new Dygraph(
               graphRef.current, data,
               { showRangeSelector: true }                                   // the options
@@ -34,10 +32,17 @@ function Graph({ height = 300, width = 400, ticker }) {
 
       function handleClick(e) {
         if (currentUser) {
-            API.updateUserByEmail(graphState.email, {$push: {stocks: [ticker]}})
-            .then(dbModel => {
-              console.log(dbModel);
-            });
+            API.addComment({
+                ticker: ticker,
+                content: ""
+            }).then(({data}) => {
+                console.log(data._id);
+                API.updateUserByEmail(graphState.email, {$push: {stocks: [ticker], comments: data._id}})
+                .then(dbModel => {
+                  console.log(dbModel);
+                });
+            })
+
         }
       }
 

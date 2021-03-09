@@ -1,4 +1,5 @@
 module.exports = {
     Stock: require('./stock'),
-    User: require('./user')
+    User: require('./user'),
+    Comment: require('./comment')
 };

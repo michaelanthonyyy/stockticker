@@ -41,6 +41,7 @@ module.exports = {
 
     findByEmail: function(req, res) {
         db.User.findOne({ email: req.params.email })
+            .populate("comments")
             .then(result => {
                 console.log(result)
                 res.json(result);

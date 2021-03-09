@@ -15,5 +15,13 @@ export default {
 
     updateUserByEmail: function(email, stocks) {
         return axios.put("/api/users/" + email, stocks);
+    },
+
+    addComment: function(comment) {
+        return axios.post("/api/comments/", comment);
+    },
+
+    updateCommentById: function(id, content) {
+        return axios.put("/api/comments/"+id, content);
     }
 }
