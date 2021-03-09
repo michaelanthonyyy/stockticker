@@ -2,8 +2,8 @@ import React from "react";
 
 const Title = () => {
   return (
-    <div class="container-fluid jumbo-container">
-      <div class="container jumbo-text-container">
+    <div className="container-fluid jumbo-container">
+      <div className="container jumbo-text-container">
         <p>
           Welcome, <span>Username</span>!
         </p>

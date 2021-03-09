@@ -1,8 +1,11 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import API from "../utils/API";
 import Dygraph from 'dygraphs';
+import { useAuth } from "../contexts/FirebaseContext";
 
 function Graph({ height = 300, width = 400, ticker }) {
+    const { currentUser } = useAuth();
+    const [graphState, setGraphState] = useState(currentUser);
     const graphRef = useRef();
 
     useEffect(() => {
@@ -29,8 +32,21 @@ function Graph({ height = 300, width = 400, ticker }) {
     
       });
 
+      function handleClick(e) {
+        if (currentUser) {
+            API.updateUserByEmail(graphState.email, { stocks: [ticker]})
+            .then(dbModel => {
+              console.log(dbModel);
+            });
+        }
+      }
+
       return (
-        <div style={{width: width, height: height}} ref={graphRef}></div>
+          <div>
+            <div style={{width: width, height: height}} ref={graphRef}></div>
+            <button onClick={handleClick}>Save Stock</button>
+          </div>
+
       )
 
 }

@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useAuth } from "../contexts/FirebaseContext";
 import { BrowserRouter as Router, Redirect, Route,  Link } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
+import API from "../utils/API";
 
 
 
@@ -23,6 +24,8 @@ export default function Signup() {
       setError("")
       setLoading(true)
       console.log(loading)
+      API.addUser({email: emailRef.current.value,
+      password: passwordRef.current.value});
       await signup(emailRef.current.value, passwordRef.current.value)
       
     } catch {
