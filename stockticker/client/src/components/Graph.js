@@ -33,7 +33,8 @@ function Graph({ height = 300, width = 400, ticker }) {
       function handleClick(e) {
         if (currentUser) {
             API.addComment({
-                ticker: ticker
+                ticker: ticker,
+                content: ""
             }).then(({data}) => {
                 console.log(data._id);
                 API.updateUserByEmail(graphState.email, {$push: {stocks: [ticker], comments: data._id}})

@@ -6,6 +6,7 @@ router.route("/")
     .post(commentsController.create);
 
 router.route("/:id")
-    .get(commentsController.findById);
+    .get(commentsController.findById)
+    .put(commentsController.updateById);
 
 module.exports = router;
