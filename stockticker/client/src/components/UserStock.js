@@ -36,7 +36,7 @@ const UserStock = () => {
     API.updateCommentById(commentId, {$set: {content: textArea.value} })
       .then(dbModel => {
         console.log(dbModel);
-        setLoading(true);
+        setUserLogin(true);
       });
   }
 
@@ -50,7 +50,7 @@ const UserStock = () => {
     .then(dbModel => {
       console.log(dbModel);
 
-      setLoading(true);
+      setUserLogin(true);
     });
   }
 
