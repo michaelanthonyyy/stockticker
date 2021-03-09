@@ -4,7 +4,7 @@ import API from "../utils/API";
 import Graph from "./Graph";
 import UserStock from "./UserStock";
 
-const Stocks = () => {
+const Stocks = ({ title }) => {
   return (
     <div className="ctn container">
       <div className="row">
