@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../context/FirebaseContext";
-import { BrowserRouter as Router, Redirect, Route,  Link } from "react-router-dom";
+import { Redirect, Link, useHistory } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import API from "../utils/API";
 
@@ -12,7 +12,8 @@ export default function Signup() {
   const passwordConfirmRef = useRef()
   const { signup } = useAuth()
   const [error, setError] = useState("")
-  const [userLogin, setUserLogin] = useState(false)  
+  const [userLogin, setUserLogin] = useState(false)
+  let history = useHistory()  
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -27,16 +28,16 @@ export default function Signup() {
       API.addUser({email: emailRef.current.value,
       password: passwordRef.current.value});
       await signup(emailRef.current.value, passwordRef.current.value)
-      
+      history.push("/user");
     } catch {
       setError("Failed to create account")
     }
-    // setUserLogin(false)
+    setUserLogin(false)
   }
  
-  if (userLogin === true) {
-    return <Redirect to="/user" component={Dashboard}/>
-  } else {
+  // if (userLogin === true) {
+  //   return <Redirect to="/user" component={Dashboard}/>
+  // } else {
   return (
 
       <div className="row">            
@@ -82,6 +83,7 @@ export default function Signup() {
 
       </div>
     </div>
-  );}
-};
+  );
+}
+
 
