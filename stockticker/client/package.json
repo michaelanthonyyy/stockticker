@@ -5,7 +5,9 @@
     "private": true,
     "proxy": "http://localhost:3001/",
     "dependencies": {
+        "react": "^17.0.1",
         "react-dom": "^17.0.1",
+        "react-router-dom": "^5.2.0",
         "react-scripts": "^4.0.3"
     },
     "scripts": {
@@ -19,8 +21,5 @@
         "not dead",
         "not ie <= 11",
         "not op_mini all"
-    ],
-    "peerDependencies": {
-        "react": "^17.0.1"
-    }
+    ]
 }
