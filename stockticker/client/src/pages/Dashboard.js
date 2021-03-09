@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Title from "../components/Title";
 // import Nav from "../components/Nav";
 import Content from "../components/Content";
@@ -14,17 +14,22 @@ export default function Dashboard() {
   console.log(currentUser);
 
   const [stocks, setStocks] = useState([]);
-  const [stockSearch, setStockSearch] = useState("");
 
-  const handleInputChange = (event) => {
-    const { value } = event.target;
-    setStockSearch(value);
-  };
+  // const [stockSearch, setStockSearch] = useState("");
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
+  // const handleInputChange = (event) => {
+  //   const { value } = event.target;
+  //   setStockSearch(value);
+  // };
 
-    setStockSearch("");
+  // const handleFormSubmit = (event) => {
+  //   event.preventDefault();
+  // };
+
+  const searchStock = (stock) => {
+    console.log(stock);
+    setStocks([...stocks, stock]);
+    console.log(stocks);
   };
 
   async function handleLogout(e) {
@@ -47,12 +52,8 @@ export default function Dashboard() {
           </ul>
         </nav>
         <Title />
-        <Search
-          value={stockSearch}
-          onChange={handleInputChange}
-          onSubmit={handleFormSubmit}
-        />
-        <Stocks ticker={stockSearch} />
+        <Search onAdd={searchStock} />
+        <Stocks ticker={stocks} />
       </>
     );
   }
