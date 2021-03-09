@@ -34,7 +34,7 @@ function Graph({ height = 300, width = 400, ticker }) {
 
       function handleClick(e) {
         if (currentUser) {
-            API.updateUserByEmail(graphState.email, { stocks: [ticker]})
+            API.updateUserByEmail(graphState.email, {$push: {stocks: [ticker]}})
             .then(dbModel => {
               console.log(dbModel);
             });
@@ -43,6 +43,7 @@ function Graph({ height = 300, width = 400, ticker }) {
 
       return (
           <div>
+            <h4>{ticker}</h4>
             <div style={{width: width, height: height}} ref={graphRef}></div>
             <button onClick={handleClick}>Save Stock</button>
           </div>
