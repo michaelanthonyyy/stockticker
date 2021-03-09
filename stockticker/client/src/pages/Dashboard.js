@@ -1,47 +1,41 @@
 import React, { useState } from "react";
 import Title from "../components/Title";
-import Nav from "../components/Nav";
-// import Content from "../components/Content";
-import Search from "../components/Search";
-import API from "../utils/API";
-import Stocks from "../components/Stocks";
-import UserStock from "../components/UserStock";
+// import Nav from "../components/Nav";
+import Content from "../components/Content";
+import { useAuth } from "../contexts/FirebaseContext";
+import Main from "./Main";
+import { Redirect } from "react-router-dom";
 
-const Dashboard = () => {
-  const [stocks, setStocks] = useState([
-    {
-      title: "Tesla",
-    },
-  ]);
-  const [stockSearch, setStockSearch] = useState("");
+export default function Dashboard() {
+  const { currentUser, signout } = useAuth();
+  console.log(currentUser);
 
-  const handelInputChange = (e) => {
-    const { value } = e.target;
-    setStockSearch(value);
-  };
+  async function handleLogout(e) {
+    e.preventDefault();
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    API.getDailyStock(stockSearch)
-      .then((res) => {
-        console.log(res);
-        setStocks(res);
-        console.log([...stocks, res.data[0].symbol]);
-      })
-      .catch((err) => console.log(err));
-    setStockSearch("");
-  };
-  return (
-    <>
-      <Nav />
-      <Title />
-      <Search
-        value={stockSearch}
-        onChange={handelInputChange}
-        onSubmit={handleFormSubmit}
-      />
-    </>
-  );
-};
+    await signout();
+  }
 
-export default Dashboard;
+  if (!currentUser) {
+    return <Redirect to="/" component={Main} />;
+  } else {
+    return (
+      <>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a className="navbar-brand">Stockticker</a>
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <button onClick={handleLogout}>Logout</button>
+            </li>
+          </ul>
+        </nav>
+        <Title />
+        <Search
+          value={stockSearch}
+          onChange={handelInputChange}
+          onSubmit={handleFormSubmit}
+        />
+      </>
+    );
+  }
+}
