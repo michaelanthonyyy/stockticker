@@ -27,7 +27,21 @@ const UserStock = () => {
         {stockState.map((stock) => (
           <li>
             <Graph ticker={stock} />
+            <form>
+            <div className="form-group">
+            <input
+              type="text"
+              placeholder="Add Comment"
+              className="form-control"
+              id="comment"
+            />
+            </div>
+            <button type="submit" className="btn btn-primary">
+            Save
+          </button>
+            </form>
           </li>
+          
         ))}
       </ul>
 
