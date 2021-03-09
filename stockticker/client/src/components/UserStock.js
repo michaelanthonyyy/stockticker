@@ -26,15 +26,15 @@ const UserStock = () => {
     <div className="col col-sm-12">
       <h4>Saved Stocks Container</h4>
       <ul>
-        {/* {stockState.map(stock => <li><Graph ticker={stock} /></li>)} */}
+        {stockState.map(stock => <li><Graph ticker={stock} /></li>)}
       </ul>
 
-      <ul>
+      {/* <ul>
         <li>Saved Stock 1</li>
         <li>Saved Stock 2</li>
         <li>Saved Stock 3</li>
         <li>Saved Stock 4</li>
-      </ul>
+      </ul> */}
     </div>
   );
 };
