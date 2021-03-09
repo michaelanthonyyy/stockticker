@@ -5,10 +5,27 @@ import Content from "../components/Content";
 import { useAuth } from "../contexts/FirebaseContext";
 import Main from "./Main";
 import { Redirect } from "react-router-dom";
+import Search from "../components/Search";
+import API from "../utils/API";
+import Stocks from "../components/Stocks";
 
 export default function Dashboard() {
   const { currentUser, signout } = useAuth();
   console.log(currentUser);
+
+  const [stocks, setStocks] = useState([]);
+  const [stockSearch, setStockSearch] = useState("");
+
+  const handleInputChange = (event) => {
+    const { value } = event.target;
+    setStockSearch(value);
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    setStockSearch("");
+  };
 
   async function handleLogout(e) {
     e.preventDefault();
@@ -32,9 +49,10 @@ export default function Dashboard() {
         <Title />
         <Search
           value={stockSearch}
-          onChange={handelInputChange}
+          onChange={handleInputChange}
           onSubmit={handleFormSubmit}
         />
+        <Stocks ticker={stockSearch} />
       </>
     );
   }
