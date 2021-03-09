@@ -16,10 +16,13 @@ const UserStock = () => {
       API.getUserByEmail(userState.email)
         .then((dbModel) => {
         console.log(dbModel);
-        setStockState(dbModel.data.stocks);
-        setCommentState(dbModel.data.comments);
+        if (dbModel) {
+          setStockState(dbModel.data.stocks);
+          setCommentState(dbModel.data.comments);
+  
+          setLoading(false);
+        }
 
-        setLoading(false);
       });
     }
   });
@@ -27,9 +30,11 @@ const UserStock = () => {
   function handleFormSubmit(e) {
     e.preventDefault();
     var commentId = e.currentTarget.getAttribute("dataId");
-    API.updateCommentById(commentId, {$set: {content: "hello"} })
+    var textArea = e.target.children[0].children[0];
+    API.updateCommentById(commentId, {$set: {content: textArea.value} })
       .then(dbModel => {
         console.log(dbModel);
+        setLoading(true);
       });
   }
 
@@ -44,7 +49,6 @@ const UserStock = () => {
             if (commentState[i]) {if (commentState[i].ticker === stock) {
               dataId = commentState[i]._id;
               comment = commentState[i].content;
-              console.log(comment);
             }}
           }
           return (
@@ -54,10 +58,9 @@ const UserStock = () => {
             <div className="form-group">
             <textarea
               type="text"
-              placeholder="Add Comment"
+              placeholder="Add a comment"
               className="form-control"
-              id={dataId}>{comment}</textarea>
-              {comment}
+              id={dataId} value={comment} />
             </div>
             <button dataId={dataId} type="submit" className="btn btn-primary">
             Save
