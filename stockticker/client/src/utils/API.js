@@ -7,5 +7,13 @@ export default {
 
     addUser: function(user) {
         return axios.post("/api/users/", user);
+    },
+
+    getUserByEmail: function(email) {
+        return axios.get("/api/users/" + email);
+    },
+
+    updateUserByEmail: function(email, stocks) {
+        return axios.put("/api/users/" + email, stocks);
     }
 }
