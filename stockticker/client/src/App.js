@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
       {/* <Dashboard /> */}
-      
+
       <Router>
         <AuthProvider>
           <Switch>
@@ -28,5 +28,3 @@ function App() {
 }
 
 export default App;
-
-
