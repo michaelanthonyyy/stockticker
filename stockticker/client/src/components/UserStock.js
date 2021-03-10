@@ -68,55 +68,48 @@ const UserStock = () => {
   }
 
   return (
-    <div className="">
-      <h4>Saved Stocks Container</h4>
-      <ul>
-        {stockState.map((stock) => {
-          var dataId = 0;
-          var indexId = 0;
-          for (let i = 0; i < stockState.length; i++) {
-            if (commentState[i]) {
-              if (commentState[i].ticker === stock) {
-                dataId = commentState[i]._id;
-                indexId = i;
-              }
+    <>
+      {stockState.map((stock) => {
+        var dataId = 0;
+        var indexId = 0;
+        for (let i = 0; i < stockState.length; i++) {
+          if (commentState[i]) {
+            if (commentState[i].ticker === stock) {
+              dataId = commentState[i]._id;
+              indexId = i;
             }
           }
-          return (
-            <li>
-              <Graph ticker={stock} />
-              <form dataId={dataId} onSubmit={handleFormSubmit}>
-                <div className="form-group">
-                  <textarea
-                    type="text"
-                    placeholder="Add a comment"
-                    className="form-control"
-                    index={indexId}
-                    value={
-                      commentState[indexId] ? commentState[indexId].content : ""
-                    }
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <button
-                  dataId={dataId}
-                  type="submit"
-                  className="btn btn-primary"
-                >
-                  Save
-                </button>
-                <button
-                  dataId={dataId}
-                  onClick={handleDelete}
-                  className="btn btn-danger"
-                >
-                  X
-                </button>
-              </form>
-            </li>
-          );
-        })}
-      </ul>
+        }
+        return (
+          <div className="col col-xs-12 col-md-4 saved-stock-ctn">
+            <Graph ticker={stock} />
+            <form dataId={dataId} onSubmit={handleFormSubmit}>
+              <div className="form-group">
+                <textarea
+                  type="text"
+                  placeholder="Add a comment"
+                  className="form-control"
+                  index={indexId}
+                  value={
+                    commentState[indexId] ? commentState[indexId].content : ""
+                  }
+                  onChange={handleInputChange}
+                />
+              </div>
+              <button dataId={dataId} type="submit" className="btn btn-primary">
+                Save
+              </button>
+              <button
+                dataId={dataId}
+                onClick={handleDelete}
+                className="btn btn-danger"
+              >
+                X
+              </button>
+            </form>
+          </div>
+        );
+      })}
 
       {/* <ul>
         <li>Saved Stock 1</li>
@@ -124,7 +117,7 @@ const UserStock = () => {
         <li>Saved Stock 3</li>
         <li>Saved Stock 4</li>
       </ul> */}
-    </div>
+    </>
   );
 };
 
