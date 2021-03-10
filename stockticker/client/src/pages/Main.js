@@ -9,7 +9,7 @@ const Main = () => {
   return (
     <div className="intro-ctn">
       <nav className="navbar navbar-expand-lg nav-main">
-        <span className="navbar-brand mx-auto">Stockticker</span>
+        {/* <span className="navbar-brand mx-auto">Stockticker</span> */}
         <button
           className="navbar-toggler"
           type="button"
@@ -19,7 +19,9 @@ const Main = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="menu-bars">
+            <i class="fas fa-bars fa-1x"></i>
+          </span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ml-auto">
@@ -36,6 +38,7 @@ const Main = () => {
           </ul>
         </div>
       </nav>
+      <div className="overlay"></div>
       <div className="container-fluid main-content-ctn">
         <div className=" contianer main-content">
           <h1>Stockticker</h1>
