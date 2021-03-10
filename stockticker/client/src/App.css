@@ -51,12 +51,40 @@ a:active {
   margin-bottom: 20px;
 }
 
-.jumbo-container {
+/* Dashboard Style */
+
+.db-nav {
+  background-color: black;
+  color: white;
+}
+
+.logout-btn {
+  background-color: red;
+  opacity: 0.8;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.logout-btn:hover {
+  background-color: red;
+  opacity: 1;
+
+  /* font-size: 17px; */
+}
+
+.dash-main-ctn {
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+}
+
+.title-ctn,
+.search-ctn {
   background: black;
-  padding-top: 10px;
+  padding-top: 5px;
   padding-bottom: 5px;
 }
-.jumbo-text-container {
+.title-text-ctn {
   color: white;
   font-size: 24px;
   text-align: center;
@@ -67,12 +95,16 @@ a:active {
   justify-content: center;
   align-items: center;
   border: none;
-  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .stock-form input {
-  width: 55%;
+  width: 50%;
   margin-right: 30px;
+}
+
+.ctn {
+  background: white;
 }
 
 .ctn .row,
