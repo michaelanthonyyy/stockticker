@@ -103,20 +103,37 @@ a:active {
   margin-right: 30px;
 }
 
-.ctn {
+.search-stock-ctn {
   background: white;
+  margin: 20px 0px;
 }
 
-.ctn .row,
+/* .ctn .row,
 .ctn .col {
   border: 1px solid lightskyblue;
-}
+} */
 
-.ctn .col {
-  padding-left: 10px;
+.ctn,
+.search-stock-ctn,
+.saved-stock-ctn {
+  padding: 0px 10px;
   padding-top: 5px;
 }
 
 .ctn {
   padding: 0px 20px;
+}
+
+.saved-stock-ctn {
+  /* background: white; */
+}
+
+.card {
+  margin: 0px auto;
+  margin-top: 20px;
+}
+
+.comment-ctn hr {
+  background: rgb(35, 72, 114);
+  width: 80%;
 }

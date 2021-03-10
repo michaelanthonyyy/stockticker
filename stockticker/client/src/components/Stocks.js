@@ -13,17 +13,19 @@ import UserStock from "./UserStock";
 
 const Stocks = ({ title, ticker }) => {
   return (
-    <div className="ctn container">
+    <div className="ctn container-fluid">
       <div className="row">
         <div className="col-12">
           <h4>Top Trending Daily Stocks / Chart / Optional </h4>
         </div>
-
+      </div>
+      <div className="row search-stock-ctn">
         <div className="col-12">
-          <h4>Chart / Stock Info</h4>
+          {/* <h4>Chart / Stock Info</h4> */}
           <Graph ticker={ticker} />
         </div>
-
+      </div>
+      <div className="row saved-stock-ctn">
         <div className="col-12">
           <h4>Saved Stocks</h4>
           <div className="row">
