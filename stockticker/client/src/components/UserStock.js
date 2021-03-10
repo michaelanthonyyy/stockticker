@@ -68,7 +68,7 @@ const UserStock = () => {
   }
 
   return (
-    <div className="col col-sm-12">
+    <div className="">
       <h4>Saved Stocks Container</h4>
       <ul>
         {stockState.map((stock) => {

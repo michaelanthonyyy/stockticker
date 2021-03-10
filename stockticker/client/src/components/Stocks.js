@@ -12,16 +12,15 @@ const Stocks = ({ title, ticker }) => {
           <h4>Top Trending Daily Stocks / Chart / Optional </h4>
         </div>
 
-        <div className="col col-sm-12 col-md-6">
+        <div className="col col-sm-12 col-md-12">
           <div className="row">
-            <UserStock />
-            <div className="col-12">
-              <p>Container 1 - Row 1 - Col 2</p>
+            <div className="col">
+              <UserStock />
             </div>
           </div>
         </div>
 
-        <div className="col-sm-12 col-md-6">
+        <div className="col-sm-12 col-md-12">
           <h4>Chart / Stock Info</h4>
           <Graph ticker={ticker} />
         </div>
