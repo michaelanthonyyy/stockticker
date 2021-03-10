@@ -81,32 +81,39 @@ const UserStock = () => {
           }
         }
         return (
-          <div className="col col-xs-12 col-md-4 saved-stock-ctn">
+          <div className="card userStock-ctn">
             <Graph ticker={stock} />
-            <form dataId={dataId} onSubmit={handleFormSubmit}>
-              <div className="form-group">
-                <textarea
-                  type="text"
-                  placeholder="Add a comment"
-                  className="form-control"
-                  index={indexId}
-                  value={
-                    commentState[indexId] ? commentState[indexId].content : ""
-                  }
-                  onChange={handleInputChange}
-                />
-              </div>
-              <button dataId={dataId} type="submit" className="btn btn-primary">
-                Save
-              </button>
-              <button
-                dataId={dataId}
-                onClick={handleDelete}
-                className="btn btn-danger"
-              >
-                X
-              </button>
-            </form>
+            <div className="card-body comment-ctn">
+              <hr />
+              <form dataId={dataId} onSubmit={handleFormSubmit}>
+                <div className="form-group">
+                  <textarea
+                    type="text"
+                    placeholder="Add a comment"
+                    className="form-control"
+                    index={indexId}
+                    value={
+                      commentState[indexId] ? commentState[indexId].content : ""
+                    }
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <button
+                  dataId={dataId}
+                  type="submit"
+                  className="btn btn-primary"
+                >
+                  Save
+                </button>
+                <button
+                  dataId={dataId}
+                  onClick={handleDelete}
+                  className="btn btn-danger"
+                >
+                  X
+                </button>
+              </form>
+            </div>
           </div>
         );
       })}

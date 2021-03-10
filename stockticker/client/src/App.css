@@ -54,7 +54,7 @@ a:active {
 /* Dashboard Style */
 
 .db-nav {
-  background-color: black;
+  background: rgb(67, 83, 92);
   color: white;
 }
 
@@ -70,24 +70,17 @@ a:active {
 .logout-btn:hover {
   background-color: red;
   opacity: 1;
-
-  /* font-size: 17px; */
 }
 
 .dash-main-ctn {
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
 }
 
-.title-ctn,
 .search-ctn {
-  background: black;
+  background: rgb(67, 83, 92);
   padding-top: 5px;
   padding-bottom: 5px;
-}
-.title-text-ctn {
-  color: white;
-  font-size: 24px;
-  text-align: center;
+  box-shadow: -1px 10px 20px rgb(29, 29, 29);
 }
 
 .stock-form {
@@ -104,19 +97,34 @@ a:active {
 }
 
 .ctn {
+  margin-top: 20px;
+}
+
+.search-stock-ctn {
   background: white;
+  margin: 20px 0px;
 }
 
-.ctn .row,
-.ctn .col {
-  border: 1px solid lightskyblue;
-}
-
-.ctn .col {
-  padding-left: 10px;
+.ctn,
+.search-stock-ctn,
+.saved-stock-ctn {
+  padding: 0px 10px;
   padding-top: 5px;
 }
 
 .ctn {
   padding: 0px 20px;
+}
+
+.card {
+  margin: 0px auto;
+  margin-top: 20px;
+}
+
+.comment-ctn hr {
+  background: rgb(35, 72, 114);
+}
+
+.comment-ctn button {
+  margin: 0px 5px;
 }

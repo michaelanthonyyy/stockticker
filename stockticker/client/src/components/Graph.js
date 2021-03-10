@@ -46,7 +46,7 @@ function Graph({ height = 200, width = 300, ticker }) {
   }
 
   return (
-    <div>
+    <div className="card-body">
       <h4>{ticker}</h4>
       <div style={{ width: width, height: height }} ref={graphRef}></div>
       <button onClick={handleClick}>Save Stock</button>
