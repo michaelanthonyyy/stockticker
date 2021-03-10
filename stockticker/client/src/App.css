@@ -8,10 +8,15 @@ a:link,
 a:visited,
 a:hover,
 a:active {
-  /* color: white; */
+  color: white;
   text-decoration: none;
 }
 
+/*  --              -- *\
+        Landing Page
+\*  --              -- */
+
+/* Main Navbar */
 /* .carouselLink {
   color: black;
 } */
@@ -29,8 +34,10 @@ a:active {
   height: 100vh;
 }
 
+/* Landing Content */
+
 .main-content-ctn {
-  height: 90vh;
+  min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,9 +48,70 @@ a:active {
   text-align: center;
 }
 
-.signup-ctn {
-  padding: 0px 10px;
+/* -- Login and Signup -- */
+
+.signup-ctn,
+.login-ctn {
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.signup-ctn .row {
+  margin: 0px auto;
+  padding: 0px 20px;
+}
+
+.login-ctn .row {
+  padding: 0px 20px;
+}
+
+.signup-form-ctn,
+.login-form-ctn {
+  background: white;
+  padding: 20px;
+  border-radius: 7px;
+  box-shadow: 0px 5px 10px;
+}
+
+.signup-form-ctn span,
+.login-form-ctn span {
+  margin-left: 5px;
+}
+
+/* Login and Signup Buttons and Re-Dir Links */
+
+.signup-btn,
+.login-btn {
+  background: blue;
+  opacity: 0.8;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.signup-btn:hover,
+.login-btn:hover {
+  background-color: blue;
+  opacity: 1;
+}
+
+.login-reDir,
+.signup-reDir {
+  color: black;
+}
+
+.login-reDir:hover,
+.signup-reDir:hover {
+  color: blue;
+  font-size: 17px;
+  border-bottom: 1px solid;
+}
+
+/* ------------------------- */
 
 .card {
   margin-top: 100px;
@@ -55,7 +123,11 @@ a:active {
   margin-bottom: 20px;
 }
 
-/* Dashboard Style */
+/* --                 -- *\
+       Dashboard Style
+\* --                 -- */
+
+/*  Navbar */
 
 .db-nav {
   background: rgb(67, 83, 92);
@@ -76,9 +148,7 @@ a:active {
   opacity: 1;
 }
 
-.dash-main-ctn {
-  background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
-}
+/* Search Bar */
 
 .search-ctn {
   background: rgb(67, 83, 92);
@@ -98,6 +168,13 @@ a:active {
 .stock-form input {
   width: 50%;
   margin-right: 30px;
+}
+
+/* -- Dashboard Content -- */
+
+.dash-main-ctn {
+  background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+  min-height: 100vh;
 }
 
 .ctn {
