@@ -44,8 +44,11 @@ a:active {
   text-align: center;
 }
 
-.signup-ctn {
-  background-image: linear-gradient(to left, #434343 0%, black 100%);
+/* -- Login and Signup -- */
+
+.signup-ctn,
+.login-ctn {
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -57,29 +60,27 @@ a:active {
   padding: 0px 20px;
 }
 
-.signup-form-ctn {
-  background: white;
-  padding: 10px;
-  border-radius: 7px;
+.login-ctn .row {
+  padding: 0px 20px;
 }
 
-.signup-form-ctn span {
+.signup-form-ctn,
+.login-form-ctn {
+  background: white;
+  padding: 20px;
+  border-radius: 7px;
+  box-shadow: 0px 5px 10px;
+}
+
+.signup-form-ctn span,
+.login-form-ctn span {
   margin-left: 5px;
 }
 
-.login-reDir {
-  color: black;
-}
+/* Login and Signup Buttons and Re-Dir Links */
 
-.login-reDir:hover {
-  color: blue;
-  font-size: 17px;
-  border-bottom: 1px solid;
-}
-
-/* Login and Signup Buttons */
-
-.signup-btn {
+.signup-btn,
+.login-btn {
   background: blue;
   opacity: 0.8;
   color: white;
@@ -88,10 +89,25 @@ a:active {
   border-radius: 5px;
 }
 
-.signup-btn:hover {
+.signup-btn:hover,
+.login-btn:hover {
   background-color: blue;
   opacity: 1;
 }
+
+.login-reDir,
+.signup-reDir {
+  color: black;
+}
+
+.login-reDir:hover,
+.signup-reDir:hover {
+  color: blue;
+  font-size: 17px;
+  border-bottom: 1px solid;
+}
+
+/* ------------------------- */
 
 .card {
   margin-top: 100px;
