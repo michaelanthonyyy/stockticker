@@ -3,6 +3,7 @@ import Dygraph from "dygraphs";
 import API from "../utils/API";
 import Graph from "./Graph";
 import UserStock from "./UserStock";
+import BusinessNews from "./BusinessNews";
 
 //?: Change height and with of the graph div to percentage to test if it will auto resize with each breakpoint
 
@@ -16,14 +17,18 @@ const Stocks = ({ title, ticker }) => {
     <div className="ctn container-fluid">
       <div className="row">
         <div className="col-12">
-          <h4>Top Trending Daily Stocks / Chart / Optional </h4>
+ 
         </div>
       </div>
       <div className="row search-stock-ctn">
-        <div className="col-12">
+        <div className="col-8">
           {/* <h4>Chart / Stock Info</h4> */}
-          <Graph ticker={ticker} />
+          <Graph height={500} width={600} ticker={ticker} saved={false} />
         </div>
+        <div className="col-4">
+          <BusinessNews />
+        </div>
+
       </div>
       <div className="row saved-stock-ctn">
         <div className="col-12">

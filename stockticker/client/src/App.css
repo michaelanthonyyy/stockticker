@@ -8,7 +8,7 @@ a:link,
 a:visited,
 a:hover,
 a:active {
-  color: white;
+  /* color: white; */
   text-decoration: none;
 }
 
@@ -17,6 +17,10 @@ a:active {
 \*  --              -- */
 
 /* Main Navbar */
+/* .carouselLink {
+  color: black;
+} */
+
 .nav-main {
   background: none;
   color: white;
