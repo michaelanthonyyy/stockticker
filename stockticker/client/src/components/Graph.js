@@ -3,6 +3,7 @@ import API from "../utils/API";
 import Dygraph from "dygraphs";
 import { useAuth } from "../context/FirebaseContext";
 
+
 function Graph({ height = 200, width = 300, ticker }) {
   const { currentUser } = useAuth();
   const [graphState, setGraphState] = useState(currentUser);
@@ -49,7 +50,7 @@ function Graph({ height = 200, width = 300, ticker }) {
     <div className="card-body">
       <h4>{ticker}</h4>
       <div style={{ width: width, height: height }} ref={graphRef}></div>
-      <button onClick={handleClick}>Save Stock</button>
+      {saved ? <div /> : <button onClick={handleClick}>Save Stock</button>}
     </div>
   );
 }
