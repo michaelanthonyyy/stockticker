@@ -13,15 +13,15 @@ const Stocks = ({ title, ticker }) => {
         </div>
 
         <div className="col-12">
+          <h4>Chart / Stock Info</h4>
+          <Graph ticker={ticker} />
+        </div>
+
+        <div className="col-12">
           <h4>Saved Stocks</h4>
           <div className="row">
             <UserStock />
           </div>
-        </div>
-
-        <div className="col-12">
-          <h4>Chart / Stock Info</h4>
-          <Graph ticker={ticker} />
         </div>
       </div>
     </div>
