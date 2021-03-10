@@ -4,7 +4,7 @@ import Dygraph from "dygraphs";
 import { useAuth } from "../context/FirebaseContext";
 
 
-function Graph({ height = 200, width = 300, ticker }) {
+function Graph({ height = 200, width = 300, ticker, saved=true }) {
   const { currentUser } = useAuth();
   const [graphState, setGraphState] = useState(currentUser);
   const graphRef = useRef();

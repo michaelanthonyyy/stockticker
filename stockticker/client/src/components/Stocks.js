@@ -23,7 +23,7 @@ const Stocks = ({ title, ticker }) => {
       <div className="row search-stock-ctn">
         <div className="col-12">
           {/* <h4>Chart / Stock Info</h4> */}
-          <Graph ticker={ticker} />
+          <Graph ticker={ticker} saved={false} />
           <BusinessNews />
         </div>
       </div>
