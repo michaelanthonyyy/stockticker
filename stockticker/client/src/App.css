@@ -8,7 +8,7 @@ a:link,
 a:visited,
 a:hover,
 a:active {
-  /* color: white; */
+  color: white;
   text-decoration: none;
 }
 
