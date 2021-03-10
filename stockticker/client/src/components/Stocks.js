@@ -17,15 +17,18 @@ const Stocks = ({ title, ticker }) => {
     <div className="ctn container-fluid">
       <div className="row">
         <div className="col-12">
-          <h4>Top Trending Daily Stocks / Chart / Optional </h4>
+ 
         </div>
       </div>
       <div className="row search-stock-ctn">
-        <div className="col-12">
+        <div className="col-8">
           {/* <h4>Chart / Stock Info</h4> */}
           <Graph ticker={ticker} saved={false} />
+        </div>
+        <div className="col-4">
           <BusinessNews />
         </div>
+
       </div>
       <div className="row saved-stock-ctn">
         <div className="col-12">

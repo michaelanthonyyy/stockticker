@@ -16,7 +16,7 @@ function BusinessNews() {
 
                 for (var i=0; i<3; i++) {
                     var index = Math.floor(Math.random()*response.data.num_results);
-                    while (randResultsList.includes(index)) {
+                    while (randResultsList.includes(index) || !(results[index].section==="business")) {
                         index = Math.floor(Math.random()*response.data.num_results);
                     }
                     randResultsList.push(index);
@@ -58,9 +58,9 @@ function BusinessNews() {
     }
 
     return (
-        <div className="container">
+        <div className="container-fluid text-center">
             <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-                <div className="carousel-inner">
+                <div className="carousel-inner carousel-dark">
                     <div className={"carousel-item "+activeSlide[0]}>
                         <p className="h4">
                             <a className="carouselLink" id="articleTitle1" href={carouselState[0] ? carouselState[0].titleLink : ""}>
