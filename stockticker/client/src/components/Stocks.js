@@ -27,7 +27,8 @@ const Stocks = ({ title, ticker }) => {
       </div>
       <div className="row saved-stock-ctn">
         <div className="col-12">
-          <h4>Saved Stocks</h4>
+          {/* <h4>Saved Stocks</h4> */}
+
           <div className="row">
             <UserStock />
           </div>
