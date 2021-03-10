@@ -23,5 +23,9 @@ export default {
 
     updateCommentById: function(id, content) {
         return axios.put("/api/comments/"+id, content);
+    },
+
+    getBusinessNews: function() {
+        return axios.get("https://api.nytimes.com/svc/topstories/v2/business.json?api-key=rBdT9Ta3VCBY52rY43X4LfdNrg58vknE");
     }
 }

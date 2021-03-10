@@ -3,6 +3,7 @@ import Dygraph from "dygraphs";
 import API from "../utils/API";
 import Graph from "./Graph";
 import UserStock from "./UserStock";
+import BusinessNews from "./BusinessNews";
 
 const Stocks = ({ title, ticker }) => {
   return (
@@ -23,7 +24,8 @@ const Stocks = ({ title, ticker }) => {
 
         <div className="col-sm-12 col-md-6">
           <h4>Chart / Stock Info</h4>
-          <Graph ticker={ticker} />
+          <Graph ticker={ticker} saved={false} />
+          <BusinessNews />
         </div>
       </div>
     </div>
