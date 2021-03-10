@@ -40,21 +40,25 @@ export default function Dashboard() {
   } else {
     return (
       <>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a className="navbar-brand">Stockticker</a>
+        <nav className="navbar navbar-expand-lg db-nav">
+          <span className="navbar-brand">Stockticker</span>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <button onClick={handleLogout}>Logout</button>
+              <button onClick={handleLogout} className="logout-btn">
+                Logout
+              </button>
             </li>
           </ul>
         </nav>
-        <Title />
-        <Search
-          value={stockSearch}
-          onChange={handleInputChange}
-          onSubmit={handleFormSubmit}
-        />
-        <Stocks ticker={searchSubmit} />
+        <div className="dash-main-ctn">
+          {/* <Title /> */}
+          <Search
+            value={stockSearch}
+            onChange={handleInputChange}
+            onSubmit={handleFormSubmit}
+          />
+          <Stocks ticker={searchSubmit} />
+        </div>
       </>
     );
   }

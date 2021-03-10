@@ -3,14 +3,14 @@ import API from "../utils/API";
 
 const Search = ({ value, onChange, onSubmit }) => {
   return (
-    <div className="conatainer">
+    <div className="conatainer search-ctn">
       <form className="stock-form" onSubmit={onSubmit}>
         <input
           type="text"
           value={value}
           onChange={onChange}
           className="form-control"
-          placeholder="Search for stocks"
+          placeholder="Enter a stock to search"
         />
         <button className="btn btn-outline-primary">Search</button>
       </form>

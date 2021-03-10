@@ -55,15 +55,36 @@ a:active {
   margin-bottom: 20px;
 }
 
-.jumbo-container {
-  background: black;
-  padding-top: 10px;
-  padding-bottom: 5px;
-}
-.jumbo-text-container {
+/* Dashboard Style */
+
+.db-nav {
+  background: rgb(67, 83, 92);
   color: white;
-  font-size: 24px;
-  text-align: center;
+}
+
+.logout-btn {
+  background-color: red;
+  opacity: 0.8;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.logout-btn:hover {
+  background-color: red;
+  opacity: 1;
+}
+
+.dash-main-ctn {
+  background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+}
+
+.search-ctn {
+  background: rgb(67, 83, 92);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-shadow: -1px 10px 20px rgb(29, 29, 29);
 }
 
 .stock-form {
@@ -71,24 +92,43 @@ a:active {
   justify-content: center;
   align-items: center;
   border: none;
-  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .stock-form input {
-  width: 55%;
+  width: 50%;
   margin-right: 30px;
 }
 
-.ctn .row,
-.ctn .col {
-  border: 1px solid lightskyblue;
+.ctn {
+  margin-top: 20px;
 }
 
-.ctn .col {
-  padding-left: 10px;
+.search-stock-ctn {
+  background: white;
+  margin: 20px 0px;
+}
+
+.ctn,
+.search-stock-ctn,
+.saved-stock-ctn {
+  padding: 0px 10px;
   padding-top: 5px;
 }
 
 .ctn {
   padding: 0px 20px;
+}
+
+.card {
+  margin: 0px auto;
+  margin-top: 20px;
+}
+
+.comment-ctn hr {
+  background: rgb(35, 72, 114);
+}
+
+.comment-ctn button {
+  margin: 0px 5px;
 }

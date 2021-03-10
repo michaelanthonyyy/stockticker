@@ -15,16 +15,14 @@ const UserStock = () => {
   useEffect(() => {
     console.log(userState);
     if (userLogin) {
-      API.getUserByEmail(userState.email)
-        .then((dbModel) => {
+      API.getUserByEmail(userState.email).then((dbModel) => {
         console.log(dbModel);
         if (dbModel.data) {
           setStockState(dbModel.data.stocks);
           setCommentState(dbModel.data.comments);
-  
+
           setUserLogin(false);
         }
-
       });
     }
   });
@@ -33,11 +31,12 @@ const UserStock = () => {
     e.preventDefault();
     var commentId = e.currentTarget.getAttribute("dataId");
     var textArea = e.target.children[0].children[0];
-    API.updateCommentById(commentId, {$set: {content: textArea.value} })
-      .then(dbModel => {
-        console.log(dbModel);
-        setUserLogin(true);
-      });
+    API.updateCommentById(commentId, {
+      $set: { content: textArea.value },
+    }).then((dbModel) => {
+      console.log(dbModel);
+      setUserLogin(true);
+    });
   }
 
   function handleDelete(e) {
@@ -46,12 +45,13 @@ const UserStock = () => {
     var textArea = e.target.parentNode.children[0].children[0];
 
     textArea.value = "";
-    API.updateCommentById(commentId, {$set: {content: ""} })
-    .then(dbModel => {
-      console.log(dbModel);
+    API.updateCommentById(commentId, { $set: { content: "" } }).then(
+      (dbModel) => {
+        console.log(dbModel);
 
-      setUserLogin(true);
-    });
+        setUserLogin(true);
+      }
+    );
   }
 
   // var comment="";
@@ -68,38 +68,55 @@ const UserStock = () => {
   }
 
   return (
-    <div className="col col-sm-12">
-      <h4>Saved Stocks Container</h4>
-      <ul>
-        {stockState.map((stock) => {
-          var dataId = 0;
-          var indexId = 0;
-          for (let i=0; i<stockState.length; i++) {
-            if (commentState[i]) {if (commentState[i].ticker === stock) {
+    <>
+      {stockState.map((stock) => {
+        var dataId = 0;
+        var indexId = 0;
+        for (let i = 0; i < stockState.length; i++) {
+          if (commentState[i]) {
+            if (commentState[i].ticker === stock) {
               dataId = commentState[i]._id;
               indexId = i;
-            }}
+            }
           }
-          return (
-          <li>
+        }
+        return (
+          <div className="card userStock-ctn">
             <Graph ticker={stock} />
-            <form dataId={dataId} onSubmit={handleFormSubmit}>
-            <div className="form-group">
-            <textarea
-              type="text"
-              placeholder="Add a comment"
-              className="form-control"
-              index={indexId} value={commentState[indexId] ? commentState[indexId].content : ""} onChange={handleInputChange} />
+            <div className="card-body comment-ctn">
+              <hr />
+              <form dataId={dataId} onSubmit={handleFormSubmit}>
+                <div className="form-group">
+                  <textarea
+                    type="text"
+                    placeholder="Add a comment"
+                    className="form-control"
+                    index={indexId}
+                    value={
+                      commentState[indexId] ? commentState[indexId].content : ""
+                    }
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <button
+                  dataId={dataId}
+                  type="submit"
+                  className="btn btn-primary"
+                >
+                  Save
+                </button>
+                <button
+                  dataId={dataId}
+                  onClick={handleDelete}
+                  className="btn btn-danger"
+                >
+                  X
+                </button>
+              </form>
             </div>
-            <button dataId={dataId} type="submit" className="btn btn-primary">
-            Save
-          </button>
-          <button dataId={dataId} onClick={handleDelete} className="btn btn-danger">X</button>
-            </form>
-          </li>
-          
-        )})}
-      </ul>
+          </div>
+        );
+      })}
 
       {/* <ul>
         <li>Saved Stock 1</li>
@@ -107,7 +124,7 @@ const UserStock = () => {
         <li>Saved Stock 3</li>
         <li>Saved Stock 4</li>
       </ul> */}
-    </div>
+    </>
   );
 };
 
