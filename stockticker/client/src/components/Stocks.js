@@ -4,6 +4,13 @@ import API from "../utils/API";
 import Graph from "./Graph";
 import UserStock from "./UserStock";
 
+//?: Change height and with of the graph div to percentage to test if it will auto resize with each breakpoint
+
+//!: Seperate each grid container into its own Row for spacing
+
+//?: Try displaying saved stocks and graphs in card components for a better on screen look
+//?: If card the components don't work, custom make card type containers...
+
 const Stocks = ({ title, ticker }) => {
   return (
     <div className="ctn container">
