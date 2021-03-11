@@ -6,31 +6,43 @@ import { useAuth } from "../context/FirebaseContext";
 function Graph({ height = 200, width = 300, ticker, saved = true }) {
   const { currentUser } = useAuth();
   const [graphState, setGraphState] = useState(currentUser);
-  const [graph, setGraph] = useState();
+  const [loading, setLoading] = useState(true);
   const graphRef = useRef();
 
   useEffect(() => {
-    API.getDailyStock(ticker).then((result) => {
-      var data = "Date, Close\n";
-      var count = 0;
-      for (const entry of result.data) {
-        data += entry.date + ", ";
-        data += entry.close + "\n";
-        if (count > 365) {
-          break;
-        } else {
-          count++;
+    // if (loading) {
+    if (!(ticker === "") && loading) {
+      console.log('hello');
+      API.getDailyStock(ticker).then((result) => {
+        var data = "Date, Close\n";
+        var count = 0;
+        // for (const entry of result.data) {
+        for (let i = 365; i>-1; i--) {
+          // if (!entry.date || !entry.close) {
+          //   break;
+          // }
+          data += result.data[i].date + ", ";
+          data += result.data[i].close + "\n";
+          if (count > 365) {
+            break;
+          } else {
+            count++;
+          }
         }
-      }
-      if (!graph) {
+        console.log(data);
         const g = new Dygraph(
           graphRef.current,
           data,
           { showRangeSelector: true } // the options
         );
-        setGraph(g);
-      }
-    });
+        setLoading(false);
+        // else {
+        //   const g = graph;
+        //   g.updateOptions({"file": data});
+        //   setGraph(g);
+        // }
+      });
+    }
   });
 
   function handleClick(e) {
