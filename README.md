@@ -83,7 +83,8 @@ function Graph({ height = 200, width = 300, ticker, saved = true }) {
     });
   });
 ```
-
+This code makes an API request to the server and populates the graph div. Dygraphs requires a CSV for the data, so the for loop iterates through the API response and formats it into a CSV string.  
+This logic is all nested inside the component "Graph", so when you call on it, the component makes the API request and renders the data. This helps readability of the code because rather than having API requests at the dashboard level, they are organized within the component.
 -----------------------
 ## Licenses
 This project uses a [MIT License](https://opensource.org/licenses/MIT). 
