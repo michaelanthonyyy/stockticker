@@ -72,8 +72,13 @@ a:active {
 }
 
 .main-content {
-  color: white;
+  color: rgb(192, 192, 192);
   text-align: center;
+}
+
+.main-content p {
+  font-size: 18px;
+  margin-top: 10px;
 }
 
 /* -- Login and Signup -- */
@@ -152,6 +157,12 @@ a:active {
   color: white;
 }
 
+.db-nav img {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
 .logout-btn {
   background-color: red;
   opacity: 0.8;
@@ -188,6 +199,20 @@ a:active {
   margin-right: 30px;
 }
 
+.search-btn {
+  background: rgb(19, 54, 107);
+  opacity: 0.8;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-btn:hover {
+  background-color: rgb(73, 120, 190);
+  opacity: 1;
+}
+
 /* -- Dashboard Content -- */
 
 .dash-main-ctn {
@@ -199,9 +224,15 @@ a:active {
   margin-top: 20px;
 }
 
+/* Results and News Container */
+
 .search-stock-ctn {
   background: white;
   margin: 20px 0px;
+}
+
+.news-ctn {
+  padding-bottom: 20px;
 }
 
 .ctn,
@@ -227,3 +258,22 @@ a:active {
 .comment-ctn button {
   margin: 0px 5px;
 }
+
+/* -- Graph Style -- */
+
+.graph-save-btn {
+  background: blue;
+  opacity: 0.8;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.graph-save-btn:hover {
+  background-color: blue;
+  opacity: 1;
+}
+
+/* -- Buisness News Style */
