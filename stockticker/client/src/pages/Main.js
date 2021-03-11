@@ -42,16 +42,7 @@ const Main = () => {
       <div className="container-fluid main-content-ctn">
         <div className=" contianer main-content">
           <h1>Stockticker</h1>
-<<<<<<< HEAD
-          <p>
-            {/* <span>Porject Desctriop</span>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel
-            cupiditate nesciunt quam laboriosam, adipisci maiores iure
-            perferendis. */}
-          </p>
-=======
           <p>Search... Save... Analyze... Plan your finacial future!</p>
->>>>>>> 54f246706c62d99745c318095e5bd8edf9eca1ed
         </div>
       </div>
     </div>
