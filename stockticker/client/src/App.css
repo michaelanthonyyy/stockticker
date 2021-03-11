@@ -152,6 +152,12 @@ a:active {
   color: white;
 }
 
+.db-nav img {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
 .logout-btn {
   background-color: red;
   opacity: 0.8;

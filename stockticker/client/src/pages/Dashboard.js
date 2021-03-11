@@ -7,6 +7,7 @@ import { Redirect } from "react-router-dom";
 import Search from "../components/Search";
 import API from "../utils/API";
 import Stocks from "../components/Stocks";
+import Logo from "../images/logo.png";
 
 export default function Dashboard() {
   const { currentUser, signout } = useAuth();
@@ -41,7 +42,9 @@ export default function Dashboard() {
     return (
       <>
         <nav className="navbar navbar-expand-lg db-nav">
+          <img src={Logo} />
           <span className="navbar-brand">Stockticker</span>
+
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <button onClick={handleLogout} className="logout-btn">
