@@ -12,40 +12,73 @@ a:active {
   text-decoration: none;
 }
 
+/* .carouselLink {
+  color: black;
+} */
+
 /*  --              -- *\
         Landing Page
 \*  --              -- */
 
 /* Main Navbar */
-/* .carouselLink {
-  color: black;
-} */
 
 .nav-main {
   background: none;
   color: white;
+  z-index: 1;
 }
+
+.menu-bars {
+  color: white;
+}
+
+.nav-link {
+  margin: 0px 20px;
+  /* font-size: 17px; */
+}
+
+.nav-link:hover {
+  /* color: white; */
+  border-bottom: 1px solid white;
+}
+
+/* Landing Content */
 
 .intro-ctn {
   background-color: black;
   background-image: url("https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
-/* Landing Content */
+.overlay {
+  background: black;
+  opacity: 0.8;
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+}
 
 .main-content-ctn {
   min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .main-content {
-  color: white;
+  color: rgb(192, 192, 192);
   text-align: center;
+}
+
+.main-content p {
+  font-size: 18px;
+  margin-top: 10px;
 }
 
 /* -- Login and Signup -- */
@@ -73,7 +106,7 @@ a:active {
   background: white;
   padding: 20px;
   border-radius: 7px;
-  box-shadow: 0px 5px 10px;
+  box-shadow: 0px 10px 20px black;
 }
 
 .signup-form-ctn span,
@@ -108,20 +141,10 @@ a:active {
 .signup-reDir:hover {
   color: blue;
   font-size: 17px;
-  border-bottom: 1px solid;
+  /* border-bottom: 1px solid; */
 }
 
 /* ------------------------- */
-
-.card {
-  margin-top: 100px;
-  box-shadow: 3px 3px 10px rgb(100, 100, 100);
-}
-
-.card h5 {
-  text-align: center;
-  margin-bottom: 20px;
-}
 
 /* --                 -- *\
        Dashboard Style
@@ -132,6 +155,12 @@ a:active {
 .db-nav {
   background: rgb(67, 83, 92);
   color: white;
+}
+
+.db-nav img {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
 }
 
 .logout-btn {
@@ -170,6 +199,20 @@ a:active {
   margin-right: 30px;
 }
 
+.search-btn {
+  background: rgb(19, 54, 107);
+  opacity: 0.8;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-btn:hover {
+  background-color: rgb(73, 120, 190);
+  opacity: 1;
+}
+
 /* -- Dashboard Content -- */
 
 .dash-main-ctn {
@@ -181,9 +224,15 @@ a:active {
   margin-top: 20px;
 }
 
+/* Results and News Container */
+
 .search-stock-ctn {
   background: white;
   margin: 20px 0px;
+}
+
+.news-ctn {
+  padding-bottom: 20px;
 }
 
 .ctn,
@@ -209,3 +258,22 @@ a:active {
 .comment-ctn button {
   margin: 0px 5px;
 }
+
+/* -- Graph Style -- */
+
+.graph-save-btn {
+  background: blue;
+  opacity: 0.8;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.graph-save-btn:hover {
+  background-color: blue;
+  opacity: 1;
+}
+
+/* -- Buisness News Style */

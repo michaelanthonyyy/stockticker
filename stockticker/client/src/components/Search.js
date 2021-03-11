@@ -12,7 +12,7 @@ const Search = ({ value, onChange, onSubmit }) => {
           className="form-control"
           placeholder="Enter a stock to search"
         />
-        <button className="btn btn-outline-primary">Search</button>
+        <button className="search-btn">Search</button>
       </form>
     </div>
   );

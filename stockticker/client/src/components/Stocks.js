@@ -15,28 +15,21 @@ import BusinessNews from "./BusinessNews";
 const Stocks = ({ title, ticker }) => {
   return (
     <div className="ctn container-fluid">
-      <div className="row">
-        <div className="col-12">
- 
-        </div>
-      </div>
       <div className="row search-stock-ctn">
-        <div className="col-8">
-          {/* <h4>Chart / Stock Info</h4> */}
-          <Graph height={500} width={600} ticker={ticker} saved={false} />
+        <div className="col col-xs-12 col-md-6 search-graph-ctn">
+          <Graph height={400} width={500} ticker={ticker} saved={false} />
         </div>
-        <div className="col-4">
-          <BusinessNews />
+        <div className="col col-xs-12 col-md-6 news-ctn">
+          <div className="row">
+            <div className="col">
+              <BusinessNews />
+            </div>
+          </div>
         </div>
-
       </div>
       <div className="row saved-stock-ctn">
         <div className="col-12">
-          {/* <h4>Saved Stocks</h4> */}
-
-          <div className="row">
-            <UserStock />
-          </div>
+          <UserStock />
         </div>
       </div>
     </div>
