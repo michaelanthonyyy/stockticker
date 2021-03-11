@@ -72,8 +72,13 @@ a:active {
 }
 
 .main-content {
-  color: white;
+  color: rgb(192, 192, 192);
   text-align: center;
+}
+
+.main-content p {
+  font-size: 18px;
+  margin-top: 10px;
 }
 
 /* -- Login and Signup -- */
