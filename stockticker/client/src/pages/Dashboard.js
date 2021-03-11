@@ -25,6 +25,8 @@ export default function Dashboard() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
+    // var temp = stockSearch;
+
     setSearchSubmit(stockSearch);
 
     setStockSearch("");

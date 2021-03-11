@@ -1,6 +1,10 @@
 var yahooFinance = require("yahoo-finance");
 
 module.exports = {
+  null: function(req, res) {
+    res.send("");
+  },
+
   findDaily: function (req, res) {
     yahooFinance.historical(
       {

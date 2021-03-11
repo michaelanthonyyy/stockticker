@@ -2,6 +2,9 @@ const router = require("express").Router();
 const { get } = require("mongoose");
 const stocksController = require("../../controller/stocksController");
 
+router.route("/daily/")
+    .get(stocksController.null);
+
 router
     .route("/daily/:ticker")
     .get(stocksController.findDaily);
