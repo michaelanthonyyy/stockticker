@@ -81,6 +81,7 @@ const UserStock = () => {
           }
         }
         return (
+          <div className="col">
           <div className="card userStock-ctn">
             <Graph ticker={stock} />
             <div className="card-body comment-ctn">
@@ -114,6 +115,7 @@ const UserStock = () => {
                 </button>
               </form>
             </div>
+          </div>
           </div>
         );
       })}
