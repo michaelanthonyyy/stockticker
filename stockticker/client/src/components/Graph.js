@@ -6,6 +6,7 @@ import { useAuth } from "../context/FirebaseContext";
 function Graph({ height = 200, width = 300, ticker, saved = true }) {
   const { currentUser } = useAuth();
   const [graphState, setGraphState] = useState(currentUser);
+  const [graph, setGraph] = useState();
   const graphRef = useRef();
 
   useEffect(() => {
@@ -21,11 +22,14 @@ function Graph({ height = 200, width = 300, ticker, saved = true }) {
           count++;
         }
       }
-      const g = new Dygraph(
-        graphRef.current,
-        data,
-        { showRangeSelector: true } // the options
-      );
+      if (!graph) {
+        const g = new Dygraph(
+          graphRef.current,
+          data,
+          { showRangeSelector: true } // the options
+        );
+        setGraph(g);
+      }
     });
   });
 

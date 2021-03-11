@@ -23,12 +23,14 @@ function BusinessNews() {
           }
           randResultsList.push(index);
           // Populate Fields
-          tempState.push({
-            title: results[index].title,
-            titleLink: results[index].url,
-            image: results[index].multimedia[0].url,
-            abstract: results[index].abstract,
-          });
+          if (results[index].multimedia) {
+            tempState.push({
+              title: results[index].title,
+              titleLink: results[index].url,
+              image: results[index].multimedia[0].url,
+              abstract: results[index].abstract,
+            });
+          }
         }
 
         setCarouselState(tempState);
